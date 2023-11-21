@@ -4,17 +4,23 @@ import Footer from '@/Components/Footer'
 import CartAlert from '@/Components/CartAlert'
 import { Provider } from 'react-redux';
 import store from './State/store';
+import { SessionProvider } from "next-auth/react"
 
-export default function App({ Component, pageProps }) {
+export default function App({
+  Component,
+  pageProps: { session, ...pageProps },
+}) {
 
 
-  
+
   return (
-    <Provider store={store}>
-      <CartAlert/>
-      <Navbar />
-      <Component {...pageProps} />
-      <Footer />
-    </Provider>
+    <SessionProvider session={session}>
+      <Provider store={store}>
+        <CartAlert />
+        <Navbar />
+        <Component {...pageProps} />
+        <Footer />
+      </Provider>
+    </SessionProvider>
   )
 }

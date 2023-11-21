@@ -1,21 +1,21 @@
-import React, { useEffect,useState} from 'react'
+import React, { useEffect, useState } from 'react'
 import Dropdown from '@/Components/Dropdown'
 import Image from 'next/image'
 import Link from 'next/link'
-import request from '@/utils/request'
+import { fetchProducts } from './State/reducer/productReducer'
+import { useSelector, useDispatch } from 'react-redux';
+import { useSession } from 'next-auth/react'; 
 
 function Product() {
-  const [products, setProducts] = useState([]);
+  const session=useSession();
+  console.log(session)
+  const dispatch = useDispatch();
+  const products = useSelector((state) => state.products.data);
+
   useEffect(() => {
-    request({},'http://localhost:3000/api/products')
-      .then((response) => {
-        setProducts(response);
-      })
-      .catch((error) => {
-        console.error('Failed to fetch products:', error);
-      });
+    dispatch(fetchProducts());
   }, []);
-  
+
   const sizeChart = ['XXS', 'XS', 'S', 'M', 'L', 'XL', 'XXL', 'XXXL']
   const availabilityChart = ['In Stock', 'Out Of Stock']
   return (
@@ -31,99 +31,20 @@ function Product() {
         </div>
       </div>
       <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:px-20 px-5'>
-        <Link href='/product/product1'>
-          <div className='flex flex-col justify-start group'>
-            <div className='w-full bg-black overflow-hidden rounded-xl'>
-              <Image className='hover:scale-105 transition duration-500 cursor-pointer object-cover' src='/img2.jpeg' width={700} height={700} alt='Tshirt' />
+        {products?.products?.map((item) => {
+          return <Link key={item._id} href={`product/${item.slug}`}>
+            <div className='flex flex-col justify-start group'>
+              <div className='w-full bg-black overflow-hidden rounded-xl'>
+                <Image className='hover:scale-105 transition duration-500 cursor-pointer object-cover' src='/img2.jpeg' width={700} height={700} alt='Tshirt' />
+              </div>
+              <span className='text-sm text-gray-200 p-1 group-hover:underline underline-offset-4 w-fit'>{item.title}</span>
+              <span className='text-sm text-gray-200 p-1'>&#8377; {item.price}</span>
             </div>
-            <span className='text-sm text-gray-200 p-1 group-hover:underline underline-offset-4 w-fit'>OLIVE STRIVE T-SHIRT</span>
-            <span className='text-sm text-gray-200 p-1'>&#8377; 4,995</span>
-          </div>
-        </Link>
-        <Link href='/product/product1'>
-          <div className='flex flex-col justify-start group'>
-            <div className='w-full bg-black overflow-hidden rounded-xl'>
-              <Image className='hover:scale-105 transition duration-500 cursor-pointer object-cover' src='/img2.jpeg' width={700} height={700} alt='Tshirt' />
-            </div>
-            <span className='text-sm text-gray-200 p-1 group-hover:underline underline-offset-4 w-fit'>OLIVE STRIVE T-SHIRT</span>
-            <span className='text-sm text-gray-200 p-1'>&#8377; 4,995</span>
-          </div>
-        </Link>
-        <Link href='/product/product1'>
-          <div className='flex flex-col justify-start group'>
-            <div className='w-full bg-black overflow-hidden rounded-xl'>
-              <Image className='hover:scale-105 transition duration-500 cursor-pointer object-cover' src='/img2.jpeg' width={700} height={700} alt='Tshirt' />
-            </div>
-            <span className='text-sm text-gray-200 p-1 group-hover:underline underline-offset-4 w-fit'>OLIVE STRIVE T-SHIRT</span>
-            <span className='text-sm text-gray-200 p-1'>&#8377; 4,995</span>
-          </div>
-        </Link>
-        <Link href='/product/product1'>
-          <div className='flex flex-col justify-start group'>
-            <div className='w-full bg-black overflow-hidden rounded-xl'>
-              <Image className='hover:scale-105 transition duration-500 cursor-pointer object-cover' src='/img2.jpeg' width={700} height={700} alt='Tshirt' />
-            </div>
-            <span className='text-sm text-gray-200 p-1 group-hover:underline underline-offset-4 w-fit'>OLIVE STRIVE T-SHIRT</span>
-            <span className='text-sm text-gray-200 p-1'>&#8377; 4,995</span>
-          </div>
-        </Link>
-        <Link href='/product/product1'>
-          <div className='flex flex-col justify-start group'>
-            <div className='w-full bg-black overflow-hidden rounded-xl'>
-              <Image className='hover:scale-105 transition duration-500 cursor-pointer object-cover' src='/img2.jpeg' width={700} height={700} alt='Tshirt' />
-            </div>
-            <span className='text-sm text-gray-200 p-1 group-hover:underline underline-offset-4 w-fit'>OLIVE STRIVE T-SHIRT</span>
-            <span className='text-sm text-gray-200 p-1'>&#8377; 4,995</span>
-          </div>
-        </Link>
-        <Link href='/product/product1'>
-          <div className='flex flex-col justify-start group'>
-            <div className='w-full bg-black overflow-hidden rounded-xl'>
-              <Image className='hover:scale-105 transition duration-500 cursor-pointer object-cover' src='/img2.jpeg' width={700} height={700} alt='Tshirt' />
-            </div>
-            <span className='text-sm text-gray-200 p-1 group-hover:underline underline-offset-4 w-fit'>OLIVE STRIVE T-SHIRT</span>
-            <span className='text-sm text-gray-200 p-1'>&#8377; 4,995</span>
-          </div>
-        </Link>
-        <Link href='/product/product1'>
-          <div className='flex flex-col justify-start group'>
-            <div className='w-full bg-black overflow-hidden rounded-xl'>
-              <Image className='hover:scale-105 transition duration-500 cursor-pointer object-cover' src='/img2.jpeg' width={700} height={700} alt='Tshirt' />
-            </div>
-            <span className='text-sm text-gray-200 p-1 group-hover:underline underline-offset-4 w-fit'>OLIVE STRIVE T-SHIRT</span>
-            <span className='text-sm text-gray-200 p-1'>&#8377; 4,995</span>
-          </div>
-        </Link>
-        <Link href='/product/product1'>
-          <div className='flex flex-col justify-start group'>
-            <div className='w-full bg-black overflow-hidden rounded-xl'>
-              <Image className='hover:scale-105 transition duration-500 cursor-pointer object-cover' src='/img2.jpeg' width={700} height={700} alt='Tshirt' />
-            </div>
-            <span className='text-sm text-gray-200 p-1 group-hover:underline underline-offset-4 w-fit'>OLIVE STRIVE T-SHIRT</span>
-            <span className='text-sm text-gray-200 p-1'>&#8377; 4,995</span>
-          </div>
-        </Link>
-        <Link href='/product/product1'>
-          <div className='flex flex-col justify-start group'>
-            <div className='w-full bg-black overflow-hidden rounded-xl'>
-              <Image className='hover:scale-105 transition duration-500 cursor-pointer object-cover' src='/img2.jpeg' width={700} height={700} alt='Tshirt' />
-            </div>
-            <span className='text-sm text-gray-200 p-1 group-hover:underline underline-offset-4 w-fit'>OLIVE STRIVE T-SHIRT</span>
-            <span className='text-sm text-gray-200 p-1'>&#8377; 4,995</span>
-          </div>
-        </Link>
-        <Link href='/product/product1'>
-          <div className='flex flex-col justify-start group'>
-            <div className='w-full bg-black overflow-hidden rounded-xl'>
-              <Image className='hover:scale-105 transition duration-500 cursor-pointer object-cover' src='/img2.jpeg' width={700} height={700} alt='Tshirt' />
-            </div>
-            <span className='text-sm text-gray-200 p-1 group-hover:underline underline-offset-4 w-fit'>OLIVE STRIVE T-SHIRT</span>
-            <span className='text-sm text-gray-200 p-1'>&#8377; 4,995</span>
-          </div>
-        </Link>
- 
-       
-        
+          </Link>
+        })}
+
+
+
       </div>
 
     </div>

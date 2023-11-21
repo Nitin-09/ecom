@@ -1,31 +1,29 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { addToCart } from '../pages/State/action-creator/cartAction';
+import { addToCart, updateQuantityInCart } from '../pages/State/reducer/cartReducer';
 
 function Quantity(props) {
-    const [Quantity, setQuantity] = useState(1);
+    const dispatch = useDispatch()
+   
+    const quantity = useSelector((state) => state.cart.quantity)
     const handleQuantity = (i) => {
-        if (Quantity == 1 && i == -1) {
+        if (quantity <= 1 && i == -1) {
             document.getElementById('dec')?.classList?.add('disabled')
         }
         else {
-            setQuantity(prev => prev + i)
+            dispatch(updateQuantityInCart(qty,i))
             if (props.update) {
-                dispatch(addToCart(props.item.itemCode, i, props.item.price ,props.item.name, props.item.size));
+                dispatch(addToCart({ 'itemCode': props.item.itemCode, 'qty': i, 'price': props.item.price, 'name': props.item.name, 'size': props.item.size }));
             }
         }
     }
-    const dispatch = useDispatch();
     useEffect(() => {
-        if (props?.item?.qty) {
-            setQuantity(props?.item?.qty)
-        }
-    }, []);
+    }, [quantity])
     return (
 
         <div className='w-fit h-fit flex justify-center gap-5 p-2 px-4 rounded-2xl mt-2 text-base border border-white select-none'>
-            <span id='dec' className='cursor-pointer' onClick={() => handleQuantity(-1)}>-</span>
-            <span className=''>{Quantity}</span>
+            <span id='dec' className='cursor-pointer ' onClick={() => handleQuantity(-1)}>-</span>
+            <span className=''>{quantity}</span>
             <span className='cursor-pointer' onClick={() => handleQuantity(1)}>+</span>
         </div>
     )

@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import React from 'react'
+import { signOut } from "next-auth/react"
 
 const Navbar = () => {
     return (
@@ -20,6 +21,7 @@ const Navbar = () => {
                             <i className="text-white text-xl fa-solid fa-magnifying-glass"></i>
                             <i className="text-white text-xl fa-solid fa-cart-shopping"></i>
                             <i className="text-white text-xl fa-solid fa-bars"></i>
+                            <button className='text-white' onClick={() => signOut()}>LOG OUT</button>
                         </div>
                     </div>
                     <div className='bg-black flex lg:hidden justify-center items-center px-5 py-2 border-b-2 border-white text-xs w-full sm:text-base'>

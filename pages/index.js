@@ -1,9 +1,10 @@
 import Head from 'next/head'
 import { Inter } from 'next/font/google'
 import Image from 'next/image';
-
-const inter = Inter({ subsets: ['latin'] })
+import { useSession } from 'next-auth/react';
 export default function Home() {
+  const session=useSession();
+  console.log(session)
   return (
     <div>
       <Head>
