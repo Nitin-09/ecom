@@ -99,7 +99,7 @@ function cart() {
                 <div className='flex justify-end w-full px-20'>
                     <a href='/product' className=" p-2.5 flex items-center mr-2 gap-3 group">
                         <span className='group-hover:underline text-white font-medium text-sm text-center group-hover:text-blue-700'>View All</span>
-                        <svg className="w-5 h-5 text-white font-medium text-sm text-center group-hover:text-blue-700" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                        <svg className="w-5 h-5 text-white font-medium text-sm text-center group-hover:text-blue-700" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
                             <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
                         </svg>
                         <span className="sr-only">Icon description</span>

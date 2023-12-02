@@ -22,9 +22,7 @@ const authOptions = {
                 if (!passwordCompare) {
                     return null;
                 }
-                console.log("hello5")
                 if (userTemp) {
-                    // console.log(userTemp)
                     return userTemp;
                 }
                 return nulll;
