@@ -3,14 +3,14 @@ import React from 'react'
 import { signOut } from "next-auth/react"
 
 const Navbar = (props) => {
-    const handleDrawer = () => {
-        if (props.isDrawerVisible) {
-            props.setisDrawerVisible(false)
-        }
-        else {
-            props.setisDrawerVisible(true)
-        }
-    }
+    // const handleDrawer = () => {
+    //     if (props.isDrawerVisible) {
+    //         props.setisDrawerVisible(false)
+    //     }
+    //     else {
+    //         props.setisDrawerVisible(true)
+    //     }
+    // }
     return (
         <div className='relative'>
             <div className='fixed z-40 w-full'>
