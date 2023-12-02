@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { addToCart, updateQuantityInCart } from '../pages/State/reducer/cartReducer';
+import { addToCart, updateQuantityInCart } from '@/State/reducer/cartReducer';
 
 function Quantity(props) {
     const dispatch = useDispatch()

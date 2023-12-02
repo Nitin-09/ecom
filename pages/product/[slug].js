@@ -3,8 +3,8 @@ import Image from 'next/image'
 import React, { useState, useEffect } from 'react'
 import FourProduct from '@/Components/FourProduct'
 import { useDispatch, useSelector } from 'react-redux';
-import { addToCart, updateQuantityInCart } from '../State/reducer/cartReducer';
-import { fetchProductBySlug } from '../State/reducer/productReducer'
+import { addToCart, updateQuantityInCart } from '@/State/reducer/cartReducer';
+import { fetchProductBySlug } from '@/State/reducer/productReducer'
 
 export default function Page() {
     const router = useRouter()

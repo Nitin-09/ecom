@@ -1,10 +1,9 @@
 import React from 'react'
 import Image from 'next/image'
-import Quantity from '@/Components/Quantity'
 import FourProduct from '@/Components/FourProduct'
 import { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'; // Import useSelector
-import { removeFromCart, updateQuantityInCart,addToCart } from './State/reducer/cartReducer';
+import { removeFromCart, updateQuantityInCart,addToCart } from '@/State/reducer/cartReducer';
 import Link from 'next/link'
 
 function cart() {
