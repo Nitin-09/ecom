@@ -4,11 +4,9 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { fetchProducts } from '@/State/reducer/productReducer'
 import { useSelector, useDispatch } from 'react-redux';
-import { useSession } from 'next-auth/react'; 
+
 
 function Product() {
-  const session=useSession();
-  console.log(session)
   const dispatch = useDispatch();
   const products = useSelector((state) => state.products.data);
 

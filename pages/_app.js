@@ -6,7 +6,7 @@ import Drawer from '@/Components/Drawer'
 import { Provider } from 'react-redux';
 import store from '@/State/store';
 import { SessionProvider } from "next-auth/react"
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 
 export default function App({
   Component,
@@ -17,8 +17,8 @@ export default function App({
     <SessionProvider session={session}>
       <Provider store={store}>
         <CartAlert />
-        <Navbar isDrawerVisible={isDrawerVisible} setisDrawerVisible={setisDrawerVisible} />
-        <Drawer isDrawerVisible={isDrawerVisible} />
+        <Navbar isDrawerVisible={isDrawerVisible} setisDrawerVisible={setisDrawerVisible}/>
+        <Drawer isDrawerVisible={isDrawerVisible} setisDrawerVisible={setisDrawerVisible}/>
         <Component {...pageProps} />
         <Footer />
       </Provider>

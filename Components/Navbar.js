@@ -1,16 +1,9 @@
 import Link from 'next/link'
 import React from 'react'
-import { signOut } from "next-auth/react"
+import Image from 'next/image'
+
 
 const Navbar = (props) => {
-    const handleDrawer = () => {
-    //     if (props.isDrawerVisible) {
-    //         props.setisDrawerVisible(false)
-    //     }
-    //     else {
-    //         props.setisDrawerVisible(true)
-    //     }
-    }
     return (
         <div className='relative'>
             <div className='fixed z-40 w-full'>
@@ -18,18 +11,18 @@ const Navbar = (props) => {
                     <div className='bg-black flex p-5 px-10 justify-between lg:justify-center border-b-2 border-white items-center  w-full'>
                         <ul className='lg:flex gap-5 w-[40%] hidden'>
                             <Link href='/newdrops'><li className='text-white hover:text-gray-600 select-none cursor-pointer'>NEW DROPS</li></Link>
-                            <Link href='/tops'><li className='text-white hover:text-gray-600 select-none cursor-pointer'>TOPS</li></Link>
-                            <Link href='/bottoms'>  <li className='text-white hover:text-gray-600 select-none cursor-pointer'>BOTTOMS</li></Link>
+                            <Link href='/tshirt'><li className='text-white hover:text-gray-600 select-none cursor-pointer'>T-SHIRT</li></Link>
+                            <Link href='/hoodie'>  <li className='text-white hover:text-gray-600 select-none cursor-pointer'>HOODIES</li></Link>
                             <Link href='/accessories'> <li className='text-white hover:text-gray-600 select-none cursor-pointer'>ACCESSORIES</li></Link>
                         </ul>
                         <div className='w-[20%] flex justify-center'>
-                            <Link href='/'><span className='text-white text-3xl select-none cursor-pointer '>LOGO</span></Link>
+                            {/* <Link href='/'><Image src='/whizz.jpeg' className='invert' width={100} height={100}></Image></Link> */}
                         </div>
                         <div className='w-[40%] flex justify-end gap-4 sm:gap-10'>
-                            <i className="text-white text-xl fa-solid fa-magnifying-glass"></i>
-                            <i className="text-white text-xl fa-solid fa-cart-shopping"></i>
-                            <i onClick={handleDrawer()} className="cursor-pointer text-white text-xl fa-solid fa-bars"></i>
-                            {/* <button className='text-white' onClick={() => signOut()}>LOG OUT</button> */}
+                            <i className="cursor-pointer text-white text-xl fa-solid fa-magnifying-glass"></i>
+                            <Link href={'/cart'}><i className="cursor-pointer text-white text-xl fa-solid fa-cart-shopping"></i></Link>
+                            <i onClick={()=>{props.setisDrawerVisible(!props.isDrawerVisible)}} className={`cursor-pointer text-white text-xl ${props.isDrawerVisible?'fa-solid fa-x':'fa-solid fa-bars'} `}></i>
+
                         </div>
                     </div>
                     <div className='bg-black flex lg:hidden justify-center items-center px-5 py-2 border-b-2 border-white text-xs w-full sm:text-base'>
