@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux';
 function CartAlert() {
     const item = useSelector((state) => state.cart.recentItem)
     useEffect(() => {
+        console.log(item)
     }, [item])
     
     return (
@@ -21,7 +22,7 @@ function CartAlert() {
 
                     <div className='flex gap-5'>
                         <div className='w-fit h-fit bg-black overflow-hidden rounded-xl'>
-                            <Image className=' hover:scale-105 transition duration-500 cursor-pointer object-cover h-[20vh] ' src='/img2.jpeg' width={150} height={100} alt='Tshirt' />
+                            <Image className='hover:scale-105 transition duration-500 cursor-pointer object-cover h-[20vh]' src={item.img} width={150} height={100} alt='Tshirt' />
                         </div>
                         <div className='flex flex-col'>
                             <span className='font-bold '>{item.name}</span>
