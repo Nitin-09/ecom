@@ -5,7 +5,7 @@ import axios from 'axios';
 export const addProduct = createAsyncThunk('add/product', async (productData, thunkAPI) => {
   try {
     // Make the API request to add the product using Axios
-    const response = await axios.post(`${process.env.URL_HOST}/api/products`, productData);
+    const response = await axios.post(`${process.env.NEXT_PUBLIC_HOST}/api/products`, productData);
 
     // Return the response data
     return response.data;
@@ -16,7 +16,8 @@ export const addProduct = createAsyncThunk('add/product', async (productData, th
 });
 export const fetchProducts = createAsyncThunk('get/products', async (_, thunkAPI) => {
   try {
-    const response = await request({}, `${process.env.URL_HOST}/api/products`);
+    console.log(process.env.NEXT_PUBLIC_HOST)
+    const response = await request({}, `${process.env.NEXT_PUBLIC_HOST}/api/products`);
     return response;
   } catch (error) {
     return thunkAPI.rejectWithValue(error.message);
@@ -24,7 +25,7 @@ export const fetchProducts = createAsyncThunk('get/products', async (_, thunkAPI
 });
 export const fetchProductBySlug = createAsyncThunk('get/product/slug', async (data, thunkAPI) => {
   try {
-    const response = await request({}, `${process.env.URL_HOST}/api/products/${data.query}`);
+    const response = await request({}, `${process.env.NEXT_PUBLIC_HOST}/api/products/${data.query}`);
     return response;
   } catch (error) {
     return thunkAPI.rejectWithValue(error.message);
