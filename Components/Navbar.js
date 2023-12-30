@@ -16,7 +16,7 @@ const Navbar = (props) => {
                             <Link href='/accessories'> <li className='text-white hover:text-gray-600 select-none cursor-pointer'>ACCESSORIES</li></Link>
                         </ul>
                         <div className='w-[20%] flex justify-center'>
-                            {/* <Link href='/'><Image src='/whizz.jpeg' className='invert' width={100} height={100}></Image></Link> */}
+                            <Link href='/'><Image src='/Whizz.jpg' width={100} height={100}></Image></Link>
                         </div>
                         <div className='w-[40%] flex justify-end gap-4 sm:gap-10'>
                             <i className="cursor-pointer text-white text-xl fa-solid fa-magnifying-glass"></i>

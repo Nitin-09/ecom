@@ -1,10 +1,8 @@
 import Head from 'next/head'
-import { Inter } from 'next/font/google'
 import Image from 'next/image';
 import { useSession } from 'next-auth/react';
 export default function Home() {
   const session=useSession();
-  console.log(session)
   return (
     <div>
       <Head>
@@ -12,14 +10,14 @@ export default function Home() {
         <meta name='description' content=''></meta>
         <link rel='icon' href='/avicon.ico'></link>
       </Head>
-      <div className='bg-black lg:min-h-screen pt-32 sm:pt-28 lg:pt-20 px-10 w-full'>
-        <h1 className='text-white pt-2'>T-SHIRTS</h1>
+      <div className='bg-black lg:min-h-screen pt-32 sm:pt-28 lg:pt-24 px-10 w-full'>
+        <h1 className='text-white py-2'>T-SHIRTS</h1>
         <div className='flex flex-col lg:flex-row gap-7 justify-center'>
           <div className='w-full'>
-            <Image src='/img1.jpeg' width={900} height={600} alt='Tshirt' />
-          </div>
+            <Image src='/unnamed2.JPEG' width={900} height={600} alt='Tshirt' />
+  0        </div>
           <div className='w-full'>
-            <Image src='/img2.jpeg' width={900} height={600} alt='Tshirt' />
+            <Image src='/unnamed3.jpg' width={900} height={600} alt='Tshirt' />
           </div>
         </div>
         <div className='flex justify-end w-full'>

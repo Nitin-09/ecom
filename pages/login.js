@@ -9,28 +9,31 @@ function login() {
         setUser({ ...User, [e.target.name]: e.target.value })
     }
     const [isPasswordVisible, setIsPasswordVisible] = useState(false)
-    const handleLogin=(e) => {
+    const handleLogin = (e) => {
         e.preventDefault();
-         signIn('credentials',{
-            username:'nitingangwani982000@gmail.com',//User.email,
-            password:'Nitin@098',//User.password,
-            redirect:true,
-            callbackUrl:"http://localhost:3000/"
-         })
+        signIn('credentials', {
+            username: User.email,
+            password: User.password,
+            redirect: true,
+            callbackUrl: "http://localhost:3000/"
+        })
     }
-    
+
     return (
         <div className='text-white min-h-screen bg-black  w-full'>
             <div className='bg-black pt-32 sm:pt-28 lg:pt-20 px-5 md:px-20'>
                 <div className='flex  flex-col md:flex-row  justify-center items-center'>
                     <div className='basis-1/2'>
-                        <Image src="/img9.jpeg" width='2000' height='300' alt="" />
+                        <Image src="/unnamed1.jpg" width='2000' height='300' alt="" />
                     </div>
                     <div className='basis-1/2 md:p-10 pb-5 md:pb-0 w-full'>
                         <form method='Post' action="" className='flex flex-col justify-center gap-10'>
                             <div>
                                 <h1 className='text-2xl'>WELCOME BACK TO LOGO</h1>
                                 <h4 className='text-sm text-gray-400 '>Enter your details below to Login</h4>
+                                {/* <button onClick={() => signIn('google')}>
+                                    Sign in with Google
+                                </button> */}
                             </div>
                             <div className='flex flex-col justify-center items-start group'>
                                 <label className='text-lg font-bold group-focus-within:text-blue-400 cursor-pointer' htmlFor="email">Email</label>

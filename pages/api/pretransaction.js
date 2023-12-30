@@ -18,7 +18,6 @@ export default async function handler(req, res) {
             },
         };
         const checkSum = await PaytmChecksum.generateSignature(JSON.stringify(paytmParams.body), process.env.NEXT_PUBLIC_PAYTM_MID)
-        console.log("hello2")
         paytmParams.head = {
             "signature": checkSum
         };
@@ -49,7 +48,6 @@ export default async function handler(req, res) {
                     });
 
                     post_res.on('end', function () {
-                        console.log('Response: ', response);
                         resolve(JSON.parse(response).body)
                     });
                 });

@@ -16,22 +16,22 @@ function Drawer(props) {
                             <li className='text-xl font-extrabold cursor-pointer'>NEW DROPS</li>
                             <Link href='/tshirt'><li className='text-gray-400 hover:text-black cursor-pointer hover:underline underline-offset-4'>T-SHIRTS</li></Link>
                             <Link href='/hoodie'><li className='text-gray-400 hover:text-black cursor-pointer hover:underline underline-offset-4'>HOODIES</li></Link>
-                            <Link href='/'><li className='text-gray-400 hover:text-black cursor-pointer hover:underline underline-offset-4'>SWEATSHIRTS</li></Link>
-                            <Link href='/'><li className='text-gray-400 hover:text-black cursor-pointer hover:underline underline-offset-4'>SHIRTS</li></Link>
-                            <Link href='/'><li className='text-gray-400 hover:text-black cursor-pointer hover:underline underline-offset-4'>JEANS</li></Link>
+                            <Link href='/underDevelopment'><li className='text-gray-400 hover:text-black cursor-pointer hover:underline underline-offset-4'>SWEATSHIRTS</li></Link>
+                            <Link href='/underDevelopment'><li className='text-gray-400 hover:text-black cursor-pointer hover:underline underline-offset-4'>SHIRTS</li></Link>
+                            <Link href='/underDevelopment'><li className='text-gray-400 hover:text-black cursor-pointer hover:underline underline-offset-4'>JEANS</li></Link>
                         </ul>
                     </div>
                     <div className=''>
                         <ul>
-                            <Link href='/'><li className='text-gray-400 hover:text-black cursor-pointer hover:underline underline-offset-4'>SIZE CHART</li></Link>
-                            <Link href='/'><li className='text-gray-400 hover:text-black cursor-pointer hover:underline underline-offset-4'>FAQ</li></Link>
+                            <Link href='/underDevelopment'><li className='text-gray-400 hover:text-black cursor-pointer hover:underline underline-offset-4'>SIZE CHART</li></Link>
+                            <Link href='/underDevelopment'><li className='text-gray-400 hover:text-black cursor-pointer hover:underline underline-offset-4'>FAQ</li></Link>
                         </ul>
                     </div>
                     <div className=''>
                         <ul>
-                            <Link href='/'><li className='text-gray-400 hover:text-black cursor-pointer hover:underline underline-offset-4'>ABOUT</li></Link>
-                            <Link href='/'><li className='text-gray-400 hover:text-black cursor-pointer hover:underline underline-offset-4'>CAREERS</li></Link>
-                            <Link href='/'><li className='text-gray-400 hover:text-black cursor-pointer hover:underline underline-offset-4'>CONTACT</li></Link>
+                            <Link href='/about'><li className='text-gray-400 hover:text-black cursor-pointer hover:underline underline-offset-4'>ABOUT</li></Link>
+                            <Link href='/underDevelopment'><li className='text-gray-400 hover:text-black cursor-pointer hover:underline underline-offset-4'>CAREERS</li></Link>
+                            <Link href='/contact'><li className='text-gray-400 hover:text-black cursor-pointer hover:underline underline-offset-4'>CONTACT</li></Link>
                         </ul>
                     </div>
                     <div className=''>
@@ -43,15 +43,15 @@ function Drawer(props) {
                     </div>
                     <div className=''>
                         <ul className='flex flex-col md:flex-row md:justify-between'>
-                            <Link href='/'><li className='text-gray-400 hover:text-black cursor-pointer hover:underline underline-offset-4'>INSTAGRAM</li></Link>
+                            <Link href='https://www.instagram.com/whizz.in_?utm_source=ig_web_button_share_sheet&igsh=MmVlMjlkMTBhMg=='><li className='text-gray-400 hover:text-black cursor-pointer hover:underline underline-offset-4'>INSTAGRAM</li></Link>
                             <Link href='/'><li className='text-gray-400 hover:text-black cursor-pointer hover:underline underline-offset-4'>LINKEDIN</li></Link>
                             <Link href='/'><li className='text-gray-400 hover:text-black cursor-pointer hover:underline underline-offset-4'>YOUTUBE</li></Link>
                         </ul>
                         <hr className='border-[1px] border-black mt-2' />
                         <ul className='flex flex-col md:flex-row md:justify-between mt-2'>
-                            <Link href='/'><li className='text-xs text-gray-400 hover:text-black cursor-pointer hover:underline underline-offset-4'>COOKIES</li></Link>
-                            <Link href='/'><li className='text-xs text-gray-400 hover:text-black cursor-pointer hover:underline underline-offset-4'>PRIVACY POLICY</li></Link>
-                            <Link href='/'><li className='text-xs text-gray-400 hover:text-black cursor-pointer hover:underline underline-offset-4'>REFUND/RETURN</li></Link>
+                            <Link href='/underDevelopment'><li className='text-xs text-gray-400 hover:text-black cursor-pointer hover:underline underline-offset-4'>COOKIES</li></Link>
+                            <Link href='/underDevelopment'><li className='text-xs text-gray-400 hover:text-black cursor-pointer hover:underline underline-offset-4'>PRIVACY POLICY</li></Link>
+                            <Link href='/underDevelopment'><li className='text-xs text-gray-400 hover:text-black cursor-pointer hover:underline underline-offset-4'>REFUND/RETURN</li></Link>
                         </ul>
                     </div>
                 </div>

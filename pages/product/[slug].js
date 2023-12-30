@@ -38,19 +38,18 @@ export default function Page() {
         }
     }, [slug]);
     useEffect(() => {
-        console.log(selectedProduct)
     }, [selectedProduct, quantity])
 
     return (
         <div className='text-white min-h-screen bg-black'>
-            <div className='bg-black pt-36 sm:pt-32 lg:pt-24 px-5 lg:px-20 flex flex-col lg:flex-row'>
+            <div className='bg-black pt-36 sm:pt-32 lg:pt-28 px-5 lg:px-20 flex flex-col lg:flex-row'>
                 <div id='div' className='basis-3/4 2xl:basis-5/6 flex lg:grid lg:grid-rows-2 gap-5 overflow-scroll lg:overflow-hidden'>
-                    <Image className='rounded-xl lg:row-span-2 lg:col-span-2' src='/img2.jpeg' width={2000} height={1500} alt=''></Image>
-                    <Image className='rounded-xl' src='/img4.jpeg' width={1000} height={1000} alt=''></Image>
+                    <Image className='rounded-xl lg:row-span-2 lg:col-span-2' src={selectedProduct?.product?.img} width={2000} height={1500} alt=''></Image>
+                    {/* <Image className='rounded-xl' src='/img4.jpeg' width={1000} height={1000} alt=''></Image>
                     <Image className='rounded-xl' src='/img5.jpeg' width={1000} height={1000} alt=''></Image>
                     <Image className='rounded-xl' src='/img6.jpeg' width={1000} height={1000} alt=''></Image>
                     <Image className='rounded-xl' src='/img7.jpeg' width={1000} height={1000} alt=''></Image>
-                    <Image className='rounded-xl' src='/img3.jpeg' width={1000} height={1000} alt=''></Image>
+                    <Image className='rounded-xl' src='/img3.jpeg' width={1000} height={1000} alt=''></Image> */}
 
                 </div>
                 <div className='basis-2/5 relative'>

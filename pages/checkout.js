@@ -23,10 +23,8 @@ function checkout() {
                 },
                 body: JSON.stringify(data),
             });
-            console.log("hello")
             let txnRes = await a.json()
             let TXN_TOKEN = txnRes.txnToken
-            console.log(TXN_TOKEN)
             var config = {
                 "root": "",
                 "flow": "DEFAULT",
@@ -38,20 +36,20 @@ function checkout() {
                 },
                 "handler": {
                     "notifyMerchant": function (eventName, data) {
-                        console.log("notifyMerchant handler function called");
-                        console.log("eventName => ", eventName);
-                        console.log("data => ", data);
+                        // console.log("notifyMerchant handler function called");
+                        // console.log("eventName => ", eventName);
+                        // console.log("data => ", data);
                     }
                 }
             };
             window.Paytm.CheckoutJS.init(config).then(function onSuccess() {
                 window.Paytm.CheckoutJS.invoke();
             }).catch(function onError(error) {
-                console.log("error => ", error);
+                // console.log("error => ", error);
             });
         }
         catch (error) {
-            console.log(error.message)
+            // console.log(error.message)
 
         }
     }
@@ -70,7 +68,6 @@ function checkout() {
             setsubTotal(0)
         }
     }, [subtotal])
-    console.log(cartItem)
     return (
         <div className='text-white min-h-screen bg-black  w-full'>
             <Head><meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0" /></Head>
