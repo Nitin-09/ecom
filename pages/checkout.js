@@ -125,11 +125,11 @@ function checkout() {
                         <div className="mt-8 space-y-3 rounded-lg border px-2 py-4 sm:px-6">
                             {cartItem?.map((item)=>{
                                 return <div className="flex flex-col rounded-lg sm:flex-row">
-                                <img className="m-2 h-24 w-28 rounded-md border object-cover object-center" src="https://images.unsplash.com/flagged/photo-1556637640-2c80d3201be8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8c25lYWtlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60" alt="" />
+                                <img className="m-2 h-24 w-28 rounded-md border object-cover object-center" src={item.img} alt="" />
                                 <div className="flex w-full flex-col px-4 py-4">
                                     <span className="font-semibold">{item.name}</span>
                                     <span className="float-right">{item.size}</span>
-                                    <p className="text-lg font-bold">{item.price}</p>
+                                    <p className="text-lg font-bold">&#8377; {item.price}</p>
                                 </div>
                             </div>
                             })}

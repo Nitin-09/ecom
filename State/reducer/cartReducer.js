@@ -10,7 +10,7 @@ const cartSlice = createSlice({
   },
   reducers: {
     addToCart: (state, action) => {
-      const { itemCode, qty, price, name, size } = action.payload;
+      const { itemCode, qty,img, price, name, size } = action.payload;
       state.recentItem = action.payload
 
       let updatedCart = JSON.parse(localStorage.getItem('cart')) || {};
@@ -29,7 +29,7 @@ const cartSlice = createSlice({
       }
       else {
         let total = parseInt(qty) * parseInt(price)
-        updatedCart[itemCode] = { itemCode, qty, price, name, size, total };
+        updatedCart[itemCode] = { itemCode, qty,img, price, name, size, total };
       }
       const subtotal = Object.values(updatedCart).reduce((acc, item) => {
         return acc + item.total;

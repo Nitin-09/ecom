@@ -13,7 +13,7 @@ function cart() {
     const [cartItem, setCartItem] = useState([]);
     const dispatch = useDispatch();
     const quantity = useSelector((state) => state.cart.quantity)
-    const handleQuantity = (i,itemCode,qty,price,name,size) => {
+    const handleQuantity = (i,itemCode,qty,img,price,name,size) => {
         if (qty <= 1 && i == -1) {
             document.getElementById('dec')?.classList?.add('disabled')
 
@@ -49,7 +49,7 @@ function cart() {
 
     return (
         <div className='text-white min-h-screen bg-black'>
-            <div className='bg-black pt-32 sm:pt-28 lg:pt-20 px-5 lg:px-20'>
+            <div className='bg-black pt-32 sm:pt-28 lg:pt-28 px-5 lg:px-20'>
                 <div className='flex justify-between'>
                     <h1 className='text-white pt-2'>YOUR CART</h1>
                     <h1 className='text-white pt-2'>CONTINUE SHOPPING</h1>
@@ -58,7 +58,7 @@ function cart() {
                     <div key={item.itemCode} className='flex flex-col sm:flex-row justify-between items-center'>
                         <div className='mt-10 flex gap-5 justify-between sm:justify-start w-full'>
                             <div className='w-fit h-fit bg-black overflow-hidden rounded-xl'>
-                                <Image className=' hover:scale-105 transition duration-500 cursor-pointer object-cover h-[25vh] ' src='/img2.jpeg' width={200} height={400} alt='Tshirt' />
+                                <Image className=' hover:scale-105 transition duration-500 cursor-pointer object-cover h-[25vh] ' src={item.img} width={200} height={400} alt='Tshirt' />
                             </div>
                             <div className='flex flex-col items-start '>
                                 <span className='text-white font-bold text-lg hover:underline underline-offset-4'>{item.name}</span>
@@ -68,7 +68,7 @@ function cart() {
                                     <div className='w-fit h-fit flex justify-center gap-5 p-2 px-4 rounded-2xl mt-2 text-base border border-white select-none'>
                                         <span id='dec' className='cursor-pointer ' onClick={() => handleQuantity(-1,item.itemCode,item.qty,item.price,item.name,item.size )}>-</span>
                                         <span className=''>{item.qty}</span>
-                                        <span className='cursor-pointer' onClick={() => handleQuantity(1,item.itemCode,item.qty,item.price,item.name,item.size)}>+</span>
+                                        <span className='cursor-pointer' onClick={() => handleQuantity(1,item.itemCode,item.qty,item.img,item.price,item.name,item.size)}>+</span>
                                     </div>
                                     <button onClick={() => handleRemoveFromCart(item.itemCode)}><i className="fa-regular fa-trash-can"></i></button>
                                 </div>

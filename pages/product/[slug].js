@@ -12,9 +12,9 @@ export default function Page() {
     const sizeChart = ['XXS', 'XS', 'S', 'M', 'L', 'XL', 'XXL', 'XXXL']
     const dispatch = useDispatch();
     const [activeSize, seActiveSize] = useState("")
-    const addToCartHandler = (itemCode, qty, price, name, size) => {
+    const addToCartHandler = (itemCode, qty,img, price, name, size) => {
         if (activeSize != "") {
-            dispatch(addToCart({ 'itemCode': itemCode, 'qty': qty, 'price': price, 'name': name, 'size': size }));
+            dispatch(addToCart({ 'itemCode': itemCode, 'qty': qty, 'img':img,'price': price, 'name': name, 'size': size }));
             document.getElementById('cartAlert')?.classList?.remove('hidden')
         }
         else {
@@ -44,7 +44,7 @@ export default function Page() {
         <div className='text-white min-h-screen bg-black'>
             <div className='bg-black pt-36 sm:pt-32 lg:pt-28 px-5 lg:px-20 flex flex-col lg:flex-row'>
                 <div id='div' className='basis-3/4 2xl:basis-5/6 flex lg:grid lg:grid-rows-2 gap-5 overflow-scroll lg:overflow-hidden'>
-                    <Image className='rounded-xl lg:row-span-2 lg:col-span-2' src={selectedProduct?.product?.img} width={2000} height={1500} alt=''></Image>
+                    <Image className='rounded-xl lg:row-span-2 lg:col-span-2' src={selectedProduct?.product?.img} width={2000} height={1500} alt='Product'></Image>
                     {/* <Image className='rounded-xl' src='/img4.jpeg' width={1000} height={1000} alt=''></Image>
                     <Image className='rounded-xl' src='/img5.jpeg' width={1000} height={1000} alt=''></Image>
                     <Image className='rounded-xl' src='/img6.jpeg' width={1000} height={1000} alt=''></Image>
@@ -78,7 +78,7 @@ export default function Page() {
                                 <span className='cursor-pointer' onClick={() => handleQuantity(1)}>+</span>
                             </div>
                         </div>
-                        <button onClick={() => addToCartHandler(selectedProduct?.product?._id, quantity, selectedProduct?.product?.price, selectedProduct?.product?.title, activeSize)} className='bg-white mt-5 p-2 text-black rounded-xl font-medium'>ADD TO CART</button>
+                        <button onClick={() => addToCartHandler(selectedProduct?.product?._id, quantity,selectedProduct?.product?.img, selectedProduct?.product?.price, selectedProduct?.product?.title, activeSize)} className='bg-white mt-5 p-2 text-black rounded-xl font-medium'>ADD TO CART</button>
                         <button className='bg-black mt-5 p-2 text-white border border-white rounded-xl font-medium'>BUY NOW</button>
 
                         <div className='pt-10'>
