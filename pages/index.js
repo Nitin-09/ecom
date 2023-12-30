@@ -8,6 +8,7 @@ export default function Home() {
       <Head>
         <title>Tshirt</title>
         <meta name='description' content=''></meta>
+        <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"></meta>
         <link rel='icon' href='/avicon.ico'></link>
       </Head>
       <div className='bg-black lg:min-h-screen pt-32 sm:pt-28 lg:pt-24 px-10 w-full'>
