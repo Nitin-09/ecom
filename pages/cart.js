@@ -90,7 +90,7 @@ function cart() {
                         <span className='text-lg text-gray-400 p-1'>&#8377; {subTotal}</span>
                     </div>
                     <span>Tax included. Shipping calculated at checkout.</span>
-                    <Link href={"/checkout"} className={`text-center bg-white mt-5 p-2 w-full sm:w-[25vw] text-black rounded-xl font-medium ${subTotal ? "" : "cursor-not-allowed"}`}>CHECK OUT</Link>
+                    <Link href="https://www.instagram.com/direct/t/17842307604021823" className={`text-center bg-white mt-5 p-2 w-full sm:w-[25vw] text-black rounded-xl font-medium ${subTotal ? "" : "cursor-not-allowed"}`}>CHECK OUT</Link>
                 </div>
             </div>
             <div className='pt-20 flex flex-col'>
