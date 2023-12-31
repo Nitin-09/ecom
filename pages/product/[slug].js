@@ -57,7 +57,7 @@ export default function Page() {
         >
           <Image
             className="rounded-xl lg:row-span-2 lg:col-span-2"
-            src={selectedProduct?.product?.img[1]}
+            src={selectedProduct?.product?.img[0]}
             width={2000}
             height={1500}
             alt="Product"
