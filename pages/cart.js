@@ -58,7 +58,7 @@ function cart() {
                     <div key={item.itemCode} className='flex flex-col sm:flex-row justify-between items-center'>
                         <div className='mt-10 flex gap-5 justify-between sm:justify-start w-full'>
                             <div className='w-fit h-fit bg-black overflow-hidden rounded-xl'>
-                                <Image className=' hover:scale-105 transition duration-500 cursor-pointer object-cover h-[25vh] ' src={item.img} width={200} height={400} alt='Tshirt' />
+                                <Image className=' hover:scale-105 transition duration-500 cursor-pointer object-cover h-[25vh] ' src={item.img[0]} width={200} height={400} alt='Tshirt' />
                             </div>
                             <div className='flex flex-col items-start '>
                                 <span className='text-white font-bold text-lg hover:underline underline-offset-4'>{item.name}</span>
