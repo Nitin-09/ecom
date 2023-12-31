@@ -62,7 +62,8 @@ export default function Page() {
             height={1500}
             alt="Product"
           ></Image>
-          {selectedProduct?.product?.img?.map((item) => {
+          {selectedProduct?.product?.img?.map((item,index) => {
+            if(index>0){
             return (
             <Image
               key={item}
@@ -71,7 +72,10 @@ export default function Page() {
               width={1000}
               height={1000}
               alt="hello"
-            ></Image> )
+            ></Image> )}
+          else{
+              return null
+          }
           })}
         </div>
         <div className="basis-2/5 relative">
