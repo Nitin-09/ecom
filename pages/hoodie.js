@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { fetchProducts } from '@/State/reducer/productReducer';
 import { useSelector, useDispatch } from 'react-redux';
 
-function Tshirt() {
+function Hoodie() {
   const dispatch = useDispatch();
   const products = useSelector((state) => state.products.data);
 
@@ -17,12 +17,13 @@ function Tshirt() {
   const availabilityChart = ['In Stock', 'Out Of Stock'];
 
   // Filter products by category 'tshirt'
-  const tshirtProducts = products?.products?.filter((item) => item.category === 'tshirt');
+  const hoodieProducts = products?.products?.filter((item) => item.category === 'hoodies');
+  console.log(hoodieProducts)
 
   return (
     <div className='text-white min-h-screen bg-black w-full'>
       <div className='bg-black pt-32 sm:pt-28 lg:pt-24 px-5 md:px-20'>
-        <h1 className='text-white py-2'>T-SHIRTS</h1>
+        <h1 className='text-white py-2'>HOODIES</h1>
         <div className='flex'>
           <div className='flex items-center'>
             <span className='text-white'>Filter:</span>
@@ -32,7 +33,7 @@ function Tshirt() {
         </div>
       </div>
       <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:px-20 px-5'>
-        {tshirtProducts && tshirtProducts.length > 0 && (tshirtProducts.map((item) => (
+      {hoodieProducts && hoodieProducts.length > 0 && (hoodieProducts.map((item) => (
           <Link key={item._id} href={`product/${item.slug}`}>
             <div className='flex flex-col justify-start group'>
               <div className='w-full bg-black overflow-hidden rounded-xl'>
@@ -41,7 +42,7 @@ function Tshirt() {
                   src={item.img[0]}
                   width={700}
                   height={700}
-                  alt='Tshirt'
+                  alt='Hoodie'
                 />
               </div>
               <span className='text-sm text-gray-200 p-1 group-hover:underline underline-offset-4 w-fit'>
@@ -56,4 +57,4 @@ function Tshirt() {
   );
 }
 
-export default Tshirt;
+export default Hoodie;

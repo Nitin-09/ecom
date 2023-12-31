@@ -13,13 +13,13 @@ const Navbar = (props) => {
                             <Link href='/newdrops'><li className='text-white hover:text-gray-600 select-none cursor-pointer'>NEW DROPS</li></Link>
                             <Link href='/tshirt'><li className='text-white hover:text-gray-600 select-none cursor-pointer'>T-SHIRT</li></Link>
                             <Link href='/hoodie'>  <li className='text-white hover:text-gray-600 select-none cursor-pointer'>HOODIES</li></Link>
-                            <Link href='/accessories'> <li className='text-white hover:text-gray-600 select-none cursor-pointer'>ACCESSORIES</li></Link>
+                            <Link href='/underDevelopment'> <li className='text-white hover:text-gray-600 select-none cursor-pointer'>SWEATSHIRTS</li></Link>
                         </ul>
                         <div className='w-[20%] flex justify-center'>
                             <Link href='/'><Image src='/Whizz.jpg' width={100} height={100}></Image></Link>
                         </div>
                         <div className='w-[40%] flex justify-end gap-4 sm:gap-10'>
-                            <i className="cursor-pointer text-white text-xl fa-solid fa-magnifying-glass"></i>
+                            <Link href={'/searchProduct'}><i className="cursor-pointer text-white text-xl fa-solid fa-magnifying-glass"></i></Link>
                             <Link href={'/cart'}><i className="cursor-pointer text-white text-xl fa-solid fa-cart-shopping"></i></Link>
                             <i onClick={()=>{props.setisDrawerVisible(!props.isDrawerVisible)}} className={`cursor-pointer text-white text-xl ${props.isDrawerVisible?'fa-solid fa-x':'fa-solid fa-bars'} `}></i>
 
@@ -28,9 +28,9 @@ const Navbar = (props) => {
                     <div className='bg-black flex lg:hidden justify-center items-center px-5 py-2 border-b-2 border-white text-xs w-full sm:text-base'>
                         <ul className='flex gap-5'>
                             <Link href='/newdrops'><li className='text-white hover:text-gray-600 select-none cursor-pointer'>NEW DROPS</li></Link>
-                            <Link href='/tops'><li className='text-white hover:text-gray-600 select-none cursor-pointer'>TOPS</li></Link>
-                            <Link href='/bottoms'>  <li className='text-white hover:text-gray-600 select-none cursor-pointer'>BOTTOMS</li></Link>
-                            <Link href='/accessories'> <li className='text-white hover:text-gray-600 select-none cursor-pointer'>ACCESSORIES</li></Link>
+                            <Link href='/tshirt'><li className='text-white hover:text-gray-600 select-none cursor-pointer'>T-SHIRTS</li></Link>
+                            <Link href='/hoodie'>  <li className='text-white hover:text-gray-600 select-none cursor-pointer'>HOODIES</li></Link>
+                            <Link href='/underDevelopment'> <li className='text-white hover:text-gray-600 select-none cursor-pointer'>SWEATSHIRTS</li></Link>
                         </ul>
                     </div>
                 </div>

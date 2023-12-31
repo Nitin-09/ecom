@@ -3,6 +3,7 @@ import Link from 'next/link'
 import Head from 'next/head'
 import Script from 'next/script'
 import { useSelector, useDispatch } from 'react-redux';
+import Image from 'next/image';
 function checkout() {
 
     const cartItems = useSelector((state) => state.cart);
@@ -125,7 +126,7 @@ function checkout() {
                         <div className="mt-8 space-y-3 rounded-lg border px-2 py-4 sm:px-6">
                             {cartItem?.map((item)=>{
                                 return <div className="flex flex-col rounded-lg sm:flex-row">
-                                <img className="m-2 h-24 w-28 rounded-md border object-cover object-center" src={item.img} alt="" />
+                                <Image className="m-2 h-24 w-28 rounded-md border object-cover object-center" src={item.img} alt=""></Image>
                                 <div className="flex w-full flex-col px-4 py-4">
                                     <span className="font-semibold">{item.name}</span>
                                     <span className="float-right">{item.size}</span>

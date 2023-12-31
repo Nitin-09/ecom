@@ -44,8 +44,8 @@ function Drawer(props) {
                     <div className=''>
                         <ul className='flex flex-col md:flex-row md:justify-between'>
                             <Link href='https://www.instagram.com/whizz.in_?utm_source=ig_web_button_share_sheet&igsh=MmVlMjlkMTBhMg=='><li className='text-gray-400 hover:text-black cursor-pointer hover:underline underline-offset-4'>INSTAGRAM</li></Link>
-                            <Link href='/'><li className='text-gray-400 hover:text-black cursor-pointer hover:underline underline-offset-4'>LINKEDIN</li></Link>
-                            <Link href='/'><li className='text-gray-400 hover:text-black cursor-pointer hover:underline underline-offset-4'>YOUTUBE</li></Link>
+                            <Link href='/'><li className='text-gray-400 hover:text-black cursor-not-allowed hover:underline underline-offset-4'>LINKEDIN</li></Link>
+                            <Link href='/'><li className='text-gray-400 hover:text-black cursor-not-allowed hover:underline underline-offset-4'>YOUTUBE</li></Link>
                         </ul>
                         <hr className='border-[1px] border-black mt-2' />
                         <ul className='flex flex-col md:flex-row md:justify-between mt-2'>

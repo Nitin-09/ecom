@@ -1,6 +1,8 @@
 import Head from 'next/head'
 import Image from 'next/image';
 import { useSession } from 'next-auth/react';
+import Link from 'next/link';
+
 export default function Home() {
   const session=useSession();
   return (
@@ -15,10 +17,10 @@ export default function Home() {
         <h1 className='text-white py-2'>T-SHIRTS</h1>
         <div className='flex flex-col lg:flex-row gap-7 justify-center'>
           <div className='w-full'>
-            <Image src='/unnamed2.JPEG' width={900} height={600} alt='Tshirt' />
+            <Link href='/product/TAPED_WHIZZ_TSHIRT'><Image src='/unnamed2.JPEG' width={900} height={600} alt='Tshirt' /></Link>
   0        </div>
           <div className='w-full'>
-            <Image src='/unnamed3.jpg' width={900} height={600} alt='Tshirt' />
+          <Link href='/product/MONEYTALK_TSHIRT'><Image src='/unnamed3.jpg' width={900} height={600} alt='Tshirt' /></Link>
           </div>
         </div>
         <div className='flex justify-end w-full'>

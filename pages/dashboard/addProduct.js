@@ -4,12 +4,12 @@ import { useSelector, useDispatch } from "react-redux";
 
 function AddProducts() {
   const dispatch = useDispatch();
-  const [image, setImage] = useState([]);
+  const [images, setImages] = useState([]); // Updated state to store an array of images
   const [formData, setFormData] = useState({
     title: "",
     desc: "",
     detail: "",
-    img: "",
+    img: [], // Updated to an array
     category: "tshirt",
     size: "",
     price: "",
@@ -20,44 +20,53 @@ function AddProducts() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleImageUpload = async (e) => {
-    setImage(e.target.files)
+  const handleCategoryChange = (e) => {
+    setFormData({ ...formData, category: e.target.value });
+  };
+
+  const handleImageUpload = (e) => {
+    setImages([...images, ...e.target.files]);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const data = new FormData();
-      var file = image[0];
-      data.append("file", file);
-      data.append("upload_preset", "Nitin980");
-      data.append("cloud_name", "defonzszt");
-      await fetch("https://api.cloudinary.com/v1_1/dt5cpgzfn/image/upload", {
-        method: "post",
-        body: data,
-      })
-        .then(async (res) => await res.json())
-        .then((data) => {
-          console.log(data);
-          setFormData({ ...formData, img: data.url });
-        })
-        .catch((err) => console.log(err));
-    }
     try {
+      const imageLinks = await Promise.all(
+        images.map(async (file) => {
+          const imageData = new FormData();
+          imageData.append("file", file);
+          imageData.append("upload_preset", "Nitin980");
+          imageData.append("cloud_name", "defonzszt");
+
+          const response = await fetch(
+            "https://api.cloudinary.com/v1_1/dt5cpgzfn/image/upload",
+            {
+              method: "post",
+              body: imageData,
+            }
+          );
+          const responseData = await response.json();
+          console.log(responseData);
+          return responseData.url;
+        })
+      );
+
+      setFormData({ ...formData, img: imageLinks });
+
       const newProduct = {
         ...formData,
       };
-      console.log(formData);
 
-      // Dispatch the action to add the new product
       dispatch(addProduct(newProduct));
     } catch (error) {
       console.error("Error adding product:", error);
     }
+  };
 
   useEffect(() => {
     console.log(formData);
-    console.log(image);
-  }, [formData, image]);
+    console.log(images);
+  }, [formData, images]);
   return (
     <div className="min-h-screen w-full">
       <div className="pt-32 sm:pt-28 lg:pt-20 flex">
@@ -114,22 +123,22 @@ function AddProducts() {
                     />
                   </div>
                   <div>
-                    <label
-                      for="category"
-                      class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                    >
-                      Category
-                    </label>
-                    <select
-                      value={formData.category}
-                      onChange={handleChange}
-                      id="category"
-                      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                    >
-                      <option value="tshirt">T-SHIRT</option>
-                      <option value="hoodies">HOODIES</option>
-                    </select>
-                  </div>
+                  <label
+                    htmlFor="category"
+                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  >
+                    Category
+                  </label>
+                  <select
+                    value={formData.category}
+                    onChange={handleCategoryChange}
+                    id="category"
+                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                  >
+                    <option value="tshirt">T-SHIRT</option>
+                    <option value="hoodies">HOODIES</option>
+                  </select>
+                </div>
                   <div>
                     <label
                       for="size"
@@ -217,7 +226,7 @@ function AddProducts() {
                 </div>
                 <button
                   type="submit"
-                  onChange={handleImageUpload}
+                  onSubmit={handleSubmit}
                   class="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-blue-700 rounded-lg focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-900 hover:bg-blue-800"
                 >
                   Add product

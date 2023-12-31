@@ -20,7 +20,7 @@ function FourProduct(props) {
       <h1 className="text-2xl text-white">{props.heading}</h1>
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mt-10">
         {limitedProducts?.map((item) => (
-          <Link key={item._id} href={`product/${item.slug}`}>
+          <Link key={item._id} href={`/product/${item.slug}`}>
             <div className="flex flex-col justify-start group">
               <div className="w-full bg-black overflow-hidden rounded-xl">
                 <Image
@@ -29,7 +29,7 @@ function FourProduct(props) {
                   width={700}
                   height={700}
                   alt="Tshirt"
-                />
+                ></Image>
               </div>
               <span className="text-sm text-gray-200 p-1 group-hover:underline underline-offset-4 w-fit">
                 {item.title}
