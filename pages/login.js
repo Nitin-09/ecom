@@ -29,7 +29,7 @@ function login() {
                     <div className='basis-1/2 md:p-10 pb-5 md:pb-0 w-full'>
                         <form method='Post' action="" className='flex flex-col justify-center gap-10'>
                             <div>
-                                <h1 className='text-2xl'>WELCOME BACK TO LOGO</h1>
+                                <h1 className='text-2xl'>WELCOME BACK TO WHIZZ.in</h1>
                                 <h4 className='text-sm text-gray-400 '>Enter your details below to Login</h4>
                                 {/* <button onClick={() => signIn('google')}>
                                     Sign in with Google

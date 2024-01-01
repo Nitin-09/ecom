@@ -20,7 +20,7 @@ function cart() {
         }
         else {
             dispatch(updateQuantityInCart({'qty':qty,'i':i}))
-            dispatch(addToCart({ 'itemCode': itemCode, 'qty': i, 'price': price, 'name': name, 'size': size }));
+            dispatch(addToCart({ 'itemCode': itemCode, 'qty': i,'img': img, 'price': price, 'name': name, 'size': size }));
         }
     }
     useEffect(() => {
@@ -66,7 +66,7 @@ function cart() {
                                 <span className='text-lg'>SIZE: <span className='text-lg text-gray-400 p-1'>{item.size}</span></span>
                                 <div className='flex justify-center items-center gap-2'>
                                     <div className='w-fit h-fit flex justify-center gap-5 p-2 px-4 rounded-2xl mt-2 text-base border border-white select-none'>
-                                        <span id='dec' className='cursor-pointer ' onClick={() => handleQuantity(-1,item.itemCode,item.qty,item.price,item.name,item.size )}>-</span>
+                                        <span id='dec' className='cursor-pointer ' onClick={() => handleQuantity(-1,item.itemCode,item.qty,item.img,item.price,item.name,item.size)}>-</span>
                                         <span className=''>{item.qty}</span>
                                         <span className='cursor-pointer' onClick={() => handleQuantity(1,item.itemCode,item.qty,item.img,item.price,item.name,item.size)}>+</span>
                                     </div>
@@ -81,7 +81,7 @@ function cart() {
                 )) :
                     <div className='flex gap-3 justify-center items-center'>
                         <p className='text-white py-5 text-center text-sm md:text-base'>ADD SOME ITEMS IN YOUR CART TO CHECKOUT.</p>
-                        <Link className='text-blue-700' href='/product'>Continue Shopping</Link>
+                        <Link href='/newdrops' className='text-blue-700'>Continue Shopping</Link>
                     </div>}
                 <hr className='mt-10 border border-gray-400' />
                 <div className='flex flex-col items-center lg:items-end pt-5'>

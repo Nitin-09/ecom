@@ -11,7 +11,8 @@ const cartSlice = createSlice({
   reducers: {
     addToCart: (state, action) => {
       const { itemCode, qty,img, price, name, size } = action.payload;
-      state.recentItem = action.payload
+      console.log(action.payload)
+    
 
       let updatedCart = JSON.parse(localStorage.getItem('cart')) || {};
       if (itemCode in updatedCart && size === updatedCart[itemCode].size) {
@@ -25,9 +26,10 @@ const cartSlice = createSlice({
       else if (itemCode in updatedCart && size !== updatedCart[itemCode].size) {
         let updatedItemCode = itemCode + size
         let total = parseInt(qty) * parseInt(price)
-        updatedCart[updatedItemCode] = { itemCode: updatedItemCode, qty, price, name, size, total };
+        updatedCart[updatedItemCode] = { itemCode: updatedItemCode, qty,img, price, name, size, total };
       }
       else {
+        state.recentItem = action.payload
         let total = parseInt(qty) * parseInt(price)
         updatedCart[itemCode] = { itemCode, qty,img, price, name, size, total };
       }

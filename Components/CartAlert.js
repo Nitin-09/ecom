@@ -29,11 +29,13 @@ function CartAlert() {
 
           <div className="flex gap-5">
             <div className="w-fit h-fit bg-black overflow-hidden rounded-xl">
-              <Image className="hover:scale-105 transition duration-500 cursor-pointer object-cover h-[20vh]"
+              <Image
+                className="hover:scale-105 transition duration-500 cursor-pointer object-cover h-[20vh]"
                 src={item.img}
                 width={150}
                 height={100}
-                alt="Tshirt"></Image>
+                alt="Tshirt"
+              ></Image>
             </div>
             <div className="flex flex-col">
               <span className="font-bold ">{item.name}</span>
@@ -53,12 +55,22 @@ function CartAlert() {
           >
             VIEW MY CART
           </Link>
-          <button className="bg-black mt-5 p-2 text-white border border-white rounded-xl font-medium">
-            CHECK OUT
-          </button>
-          <button className="text-base p-4 font-semibold underline underline-offset-2">
-            Continue shopping
-          </button>
+          <Link
+            className="bg-black mt-5 p-2 text-white border border-white rounded-xl font-medium"
+            href="https://www.instagram.com/whizz.in_?utm_source=ig_web_button_share_sheet&igsh=MmVlMjlkMTBhMg=="
+          >
+            <button className="w-full text-center">CHECK OUT</button>
+          </Link>
+          <Link href="/newdrops">
+            <button
+              onClick={() =>
+                document.getElementById("cartAlert")?.classList?.add("hidden")
+              }
+              className="text-base p-4 font-semibold underline underline-offset-2"
+            >
+              Continue shopping
+            </button>
+          </Link>
         </div>
       </div>
     </div>

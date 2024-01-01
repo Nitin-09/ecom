@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import FourProduct from "@/Components/FourProduct";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart, updateQuantityInCart } from "@/State/reducer/cartReducer";
+import Link from "next/link";
 import { fetchProductBySlug } from "@/State/reducer/productReducer";
 
 export default function Page() {
@@ -57,21 +58,26 @@ export default function Page() {
         >
           <Image
             className="rounded-xl lg:row-span-2 lg:col-span-2"
-            src={selectedProduct?.product?.img[1]}
+            src={selectedProduct?.product?.img[0]}
             width={2000}
             height={1500}
             alt="Product"
           ></Image>
-          {selectedProduct?.product?.img?.map((item) => {
-            return (
-            <Image
-              key={item}
-              className="rounded-xl"
-              src={item}
-              width={1000}
-              height={1000}
-              alt="hello"
-            ></Image> )
+          {selectedProduct?.product?.img?.map((item, index) => {
+            if (index > 0) {
+              return (
+                <Image
+                  key={item}
+                  className="rounded-xl"
+                  src={item}
+                  width={1000}
+                  height={1000}
+                  alt="hello"
+                ></Image>
+              );
+            } else {
+              return null;
+            }
           })}
         </div>
         <div className="basis-2/5 relative">
@@ -88,9 +94,9 @@ export default function Page() {
               <div className="flex flex-wrap gap-5 ">
                 {sizeChart.map((item) => {
                   if (
-                    selectedProduct?.product?.size?.split(",")?.indexOf(item) >
+                    selectedProduct?.product?.size?.split(",")?.indexOf(item) >=
                     0
-                  )
+                  ) {
                     return (
                       <button
                         key={item}
@@ -108,7 +114,7 @@ export default function Page() {
                         {item}
                       </button>
                     );
-                  else
+                  } else
                     return (
                       <button
                         key={item}
@@ -150,7 +156,7 @@ export default function Page() {
                 addToCartHandler(
                   selectedProduct?.product?._id,
                   quantity,
-                  selectedProduct?.product?.img,
+                  selectedProduct?.product?.img[0],
                   selectedProduct?.product?.price,
                   selectedProduct?.product?.title,
                   activeSize
@@ -160,9 +166,12 @@ export default function Page() {
             >
               ADD TO CART
             </button>
-            <button className="bg-black mt-5 p-2 text-white border border-white rounded-xl font-medium">
-              BUY NOW
-            </button>
+            <Link
+              className="bg-black mt-5 p-2 text-white border border-white rounded-xl font-medium"
+              href="https://www.instagram.com/whizz.in_?utm_source=ig_web_button_share_sheet&igsh=MmVlMjlkMTBhMg=="
+            >
+              <button className="w-full text-center">BUY NOW</button>
+            </Link>
 
             <div className="pt-10">
               <div className="flex justify-between">
