@@ -24,7 +24,7 @@ const authOptions = {
                     if (!passwordCompare) {
                         return null;
                     }
-                    if (userTemp.email === 'admin@whizz.com') 
+                    if (userTemp.email === 'admin@whizz.in') 
                         return { ...userTemp, nextPage: '/dashboard/addProduct' };
                     if (userTemp) {
                         return userTemp;
