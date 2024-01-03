@@ -2,12 +2,12 @@ import '@/styles/globals.css'
 import Navbar from '@/Components/Navbar'
 import Footer from '@/Components/Footer'
 import CartAlert from '@/Components/CartAlert'
+import { ToastContainer, toast } from "react-toastify";
 import Drawer from '@/Components/Drawer'
 import { Provider } from 'react-redux';
 import store from '@/State/store';
 import { SessionProvider } from "next-auth/react"
 import { useState } from 'react'
-
 export default function App({
   Component,
   pageProps: { session, ...pageProps },
@@ -18,6 +18,7 @@ export default function App({
       <Provider store={store}>
         <CartAlert />
         <Navbar isDrawerVisible={isDrawerVisible} setisDrawerVisible={setisDrawerVisible}/>
+        <ToastContainer />
         <Drawer isDrawerVisible={isDrawerVisible} setisDrawerVisible={setisDrawerVisible}/>
         <Component {...pageProps} />
         <Footer />

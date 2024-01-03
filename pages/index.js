@@ -12,6 +12,7 @@ export default function Home() {
         <meta name='description' content=''></meta>
         <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"></meta>
         <link rel='icon' href='/avicon.ico'></link>
+        <script src="https://widget.cloudinary.com/v2.0/global/all.js" type="text/javascript"></script>
       </Head>
       <div className='bg-black lg:min-h-screen pt-32 sm:pt-28 lg:pt-24 px-10 w-full'>
         <h1 className='text-white py-2'>T-SHIRTS</h1>

@@ -5,6 +5,7 @@ import axios from 'axios';
 export const addProduct = createAsyncThunk('add/product', async (productData, thunkAPI) => {
   try {
     // Make the API request to add the product using Axios
+    console.log(productData)
     const response = await axios.post(`${process.env.NEXT_PUBLIC_HOST}/api/products`, productData);
 
     // Return the response data

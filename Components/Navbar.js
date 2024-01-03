@@ -26,11 +26,11 @@ const Navbar = (props) => {
                         </div>
                     </div>
                     <div className='bg-black flex lg:hidden justify-center items-center px-5 py-2 border-b-2 border-white text-xs w-full sm:text-base'>
-                        <ul className='flex gap-5'>
-                            <Link href='/newdrops'><li className='text-white hover:text-gray-600 select-none cursor-pointer'>NEW DROPS</li></Link>
-                            <Link href='/tshirt'><li className='text-white hover:text-gray-600 select-none cursor-pointer'>T-SHIRTS</li></Link>
-                            <Link href='/hoodie'>  <li className='text-white hover:text-gray-600 select-none cursor-pointer'>HOODIES</li></Link>
-                            <Link href='/underDevelopment'> <li className='text-white hover:text-gray-600 select-none cursor-pointer'>SWEATSHIRTS</li></Link>
+                        <ul className='flex sm:gap-5 gap-4 justify-center items-center'>
+                            <Link href='/newdrops'><li className='text-white hover:text-gray-600 select-none cursor-pointer text-center'>NEW DROPS</li></Link>
+                            <Link href='/tshirt'><li className='text-white hover:text-gray-600 select-none cursor-pointer text-center'>T-SHIRTS</li></Link>
+                            <Link href='/hoodie'>  <li className='text-white hover:text-gray-600 select-none cursor-pointer text-center'>HOODIES</li></Link>
+                            <Link href='/underDevelopment'> <li className='text-white hover:text-gray-600 select-none cursor-pointer text-center'>SWEATSHIRTS</li></Link>
                         </ul>
                     </div>
                 </div>
