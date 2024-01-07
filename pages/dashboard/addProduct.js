@@ -7,7 +7,7 @@ import DashboardLayout from "@/Components/DashboardLayout";
 import "react-toastify/dist/ReactToastify.css";
 
 function AddProducts() {
-  const [activeKey, setactiveKey] = useState('Add Product')
+  
   const dispatch = useDispatch();
   const [formData, setFormData] = useState({
     title: "",
@@ -60,11 +60,11 @@ function AddProducts() {
   };
 
   useEffect(() => {
-  }, [formData,activeKey]);
+  }, [formData]);
   return (
-    <div className="w-full pt-24 sm:pt-28 lg:pt-24 flex flex-col md:flex-row min-h-screen">
-      <DashboardLayout setactiveKey={setactiveKey} activeKey={activeKey}></DashboardLayout>
-      <div className="pt-24 sm:pt-28 md:pt-2 w-[80%] ">
+    <div className="w-full pt-24 sm:pt-32 lg:pt-24 flex flex-col md:flex-row min-h-screen">
+      <DashboardLayout></DashboardLayout>
+      <div className="pt-24 sm:pt-32 md:pt-2 w-full md:w-[80%]">
         <div class="py-2 mx-auto px-4">
           <h2 class="mb-4 text-xl font-bold text-gray-900 dark:text-white">
             Add a new product
