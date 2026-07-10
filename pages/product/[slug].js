@@ -58,7 +58,7 @@ export default function Page() {
         >
           <Image
             className="rounded-xl lg:row-span-2 lg:col-span-2"
-            src={selectedProduct?.product?.img[0]}
+            src= src={`https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload/${selectedProduct?.product?.img[0]}`}
             width={2000}
             height={1500}
             alt="Product"
@@ -69,7 +69,7 @@ export default function Page() {
                 <Image
                   key={item}
                   className="rounded-xl"
-                  src={item}
+                  src={`https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload/${item}`}
                   width={1000}
                   height={1000}
                   alt="hello"
