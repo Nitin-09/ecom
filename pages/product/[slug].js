@@ -58,7 +58,7 @@ export default function Page() {
         >
           <Image
             className="rounded-xl lg:row-span-2 lg:col-span-2"
-            src= src={`https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload/${selectedProduct?.product?.img[0]}`}
+            src={`https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload/${selectedProduct?.product?.img[0]}`}
             width={2000}
             height={1500}
             alt="Product"
