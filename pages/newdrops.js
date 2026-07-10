@@ -44,7 +44,7 @@ function newDrops() {
               <div className='w-full bg-black overflow-hidden rounded-xl'>
                 <Image
                   className='hover:scale-105 transition duration-500 cursor-pointer object-cover'
-                  src={item.img[0]}
+                 src={`https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload/${item.img[0]}`}
                   width={700}
                   height={700}
                   alt='Product'
